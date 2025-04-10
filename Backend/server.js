@@ -592,9 +592,22 @@ server.post("/add-comment", verifyJWT, (req, res) => {
       {
         $push: { comments: commentFile._id },
         $inc: { "activity.total_comments": 1 },
-        "activity.total_parent_comments": 1,
-      }
-    );
+        "activity.total_parent_comments": 1})
+        .then(blog => {console.log("New Comment Created")})
+
+        let notificationObj = {
+          type: "comment",
+          blog: _id,
+          notification_for: blog_author,
+          user: user_id,
+          comment: commentFile._id
+        }
+
+        new Notification(notificationObj).save().then(notification => console.log("new notification created"));
+
+        return res.status(200).json({
+          comment, commentedAt, _id: commentFile._id, user_id, children
+        })
   });
 });
 
