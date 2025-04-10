@@ -16,3 +16,15 @@ This website include -
 13. Also user can change login password from settings.
 14. Its mobile responsive with modern design + fade in animation on pages.
 And much more.
+
+# How to Start 
+1. git clone https://github.com/aishwarya-panja/Scrollz.git
+2. cd Backend/
+3. nano .env [and put in credentials DB_LOCATION, SECRET_ACCESS_KEY, AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY, PASSWORD]
+4. npm i
+5. npm start
+6. Open another Terminal
+7. cd Frontend/
+8. npm i
+9. npm run dev
+10. Navigate to http://localhost:5173/
